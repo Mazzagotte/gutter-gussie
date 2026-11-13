@@ -100,25 +100,3 @@ main section[id],#application{scroll-margin-top:100px}
 /* Review fixes: consistent body type, larger citation targets */
 input,select,textarea,button{font-family:var(--font-body)}
 .story-cite{display:inline-block;min-width:24px;padding:2px 4px;text-align:center;font-size:16px}
-
-/* ---- Live form additions ---- */
-.turnstile-slot{margin:0 0 18px;min-height:65px}
-.review-actions{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between;margin-top:6px}
-.review-actions .pill[disabled]{opacity:.6;cursor:progress;transform:none}
-.send-error{margin:0 0 16px!important}
-.send-progress{margin:0 0 18px}
-.send-progress p{margin:8px 0 0;font:600 16px/1.4 var(--font-body);color:var(--color-muted)}
-.send-bar{height:10px;border-radius:var(--radius-pill);background:var(--color-lavender-light);overflow:hidden;border:1px solid var(--color-border)}
-.send-bar span{display:block;height:100%;width:0;background:var(--color-purple);transition:width .25s ease}
-.received-next{background:var(--color-lavender-light);border-radius:var(--radius-small);padding:20px 22px;margin:18px 0}
-.received-next strong{font:400 22px var(--font-display)}
-.received-next ol{margin:10px 0 0;padding-left:22px;font:600 17px/1.55 var(--font-body)}
-.received-next li+li{margin-top:6px}
-.received-copy{font-size:16px;color:var(--color-muted)}
-.tourney-facts{margin:14px 0 18px;display:grid;gap:10px}
-.tourney-facts div{display:grid;grid-template-columns:130px 1fr;gap:10px;border-top:1px solid var(--color-border);padding-top:10px}
-.tourney-facts dt{font:700 12px/1.6 var(--font-body);letter-spacing:1.5px;text-transform:uppercase;color:var(--color-muted)}
-.tourney-facts dd{margin:0;font:600 18px/1.45 var(--font-body)}
-@media(max-width:480px){.tourney-facts div{grid-template-columns:1fr;gap:2px}.review-actions{flex-direction:column-reverse;align-items:stretch}}
-.foot-admin{margin-left:18px;opacity:.6;font-size:13px}
-@media(prefers-reduced-motion:reduce){.send-bar span{transition:none}}

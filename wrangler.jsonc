@@ -1,40 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  // Static mockup of the Idaho Gutter Gussie Club site. No Worker code yet: Cloudflare serves public/ as-is.
+  // The working membership application + club admin lives on the membership-backend branch for later.
   "name": "gutter-gussie",
-  "main": "src/index.js",
   "compatibility_date": "2026-10-01",
   "routes": [{ "pattern": "guttergussie.mazzagotte.dev", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false,
-  // Keep the variables you set in the dashboard (admin emails, Turnstile secret) when GitHub deploys run.
-  "keep_vars": true,
   "assets": {
     "directory": "./public",
-    "binding": "ASSETS",
-    "not_found_handling": "404-page",
-    // The club admin and the API go through the Worker first; the public site is served straight from assets.
-    "run_worker_first": ["/admin", "/admin/*", "/api/*"]
-  },
-  "d1_databases": [
-    { "binding": "DB", "database_name": "gutter-gussie", "database_id": "407ca3cc-833e-44ac-a4f7-e4a8807f9e37", "migrations_dir": "migrations" }
-  ],
-  // Private bucket for recap / standing sheets. Never public; the admin downloads through the Worker.
-  "r2_buckets": [{ "binding": "PROOFS", "bucket_name": "gutter-gussie-proofs" }],
-  // Daily clean-up of applications that were started but never finished (10:15 UTC = 3:15 AM Mountain standard time).
-  "triggers": { "crons": ["15 10 * * *"] },
-  "observability": { "enabled": true },
-  "vars": {
-    "TIMEZONE": "America/Denver",
-    // Cloudflare Access (same Zero Trust team as mazzagotte.dev). Not secret.
-    "ACCESS_TEAM_DOMAIN": "https://divine-union-90c8.cloudflareaccess.com"
-    // Set in the dashboard (Settings → Variables and Secrets), not here, so GitHub deploys keep them:
-    //   ACCESS_AUD          Text   AUD tag of the "Gutter Gussie admin" Access application
-    //   ADMIN_EMAILS        Text   comma-separated emails allowed into /admin (extra lock behind Access)
-    //   TURNSTILE_SITE_KEY  Text   Turnstile site key (public)
-    //   TURNSTILE_SECRET    Secret Turnstile secret key
-    //   NOTIFY_TO           Text   optional: where new-application emails go (needs the EMAIL binding below)
+    "not_found_handling": "404-page"
   }
-  // Optional email alerts for new applications (Cloudflare Email Routing on mazzagotte.dev must be on,
-  // and NOTIFY_TO must be a verified destination address). Uncomment to turn on:
-  // ,"send_email": [{ "name": "EMAIL" }]
 }

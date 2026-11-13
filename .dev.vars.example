@@ -1,6 +1,0 @@
-# Copy to .dev.vars for local development (never commit .dev.vars)
-# DEV_NO_AUTH=1 opens /admin locally only. It is ignored whenever ACCESS_AUD is set (the live site).
-DEV_NO_AUTH=1
-ACCESS_AUD=
-TURNSTILE_SITE_KEY=
-TURNSTILE_SECRET=
