@@ -1,0 +1,16 @@
+{
+  "name": "gutter-gussie",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler d1 migrations apply gutter-gussie --remote && wrangler deploy",
+    "migrate": "wrangler d1 migrations apply gutter-gussie --remote",
+    "db:local": "wrangler d1 migrations apply gutter-gussie --local",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "wrangler": "^4.160.1"
+  }
+}
